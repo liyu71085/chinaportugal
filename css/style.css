@@ -152,12 +152,15 @@ main { position: relative; }
   align-items: center;
   padding: 0 var(--pad);
   overflow: hidden;
+  background: var(--bg);
+  isolation: isolate;
 }
 .hero-media {
   position: absolute;
   top: 0; right: -4vw;
   height: 100%;
   aspect-ratio: 1;
+  mix-blend-mode: screen;
 }
 .hero-img {
   width: 100%; height: 100%;
