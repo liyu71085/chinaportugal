@@ -1,13 +1,14 @@
 :root {
-  --bg: #050505;
-  --bg-2: #0c0c0b;
-  --ink: #f3efe4;
-  --ink-soft: #cfcab9;
-  --muted: #8f8b7f;
-  --gold: #bab076;
-  --gold-2: #d4af37;
-  --gold-dim: rgba(186, 176, 118, 0.28);
-  --line: rgba(186, 176, 118, 0.15);
+  color-scheme: light;
+  --bg: #ffffff;
+  --bg-2: #f4f5f6;
+  --ink: #22282b;
+  --ink-soft: #434b50;
+  --muted: #62696d;
+  --gold: #826321;
+  --gold-2: #9d782a;
+  --gold-dim: rgba(130, 99, 33, 0.28);
+  --line: rgba(34, 40, 43, 0.16);
   --red: #a3242a;
   --green: #1a6b47;
 
@@ -30,7 +31,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--f-body);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
@@ -39,6 +40,8 @@ body {
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+::selection { color: var(--bg); background: var(--gold); }
 .gold { color: var(--gold); }
 
 /* ---------- Nav ---------- */
@@ -57,7 +60,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(5, 5, 5, 0.82);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
@@ -113,7 +116,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-family: var(--f-label);
   font-size: 13px;
   letter-spacing: 0.1em;
-  color: #3e3c37;
+  color: var(--muted);
 }
 .lang-btn { color: var(--muted); transition: color 0.3s; }
 .lang-btn.active, .lang-btn:hover { color: var(--gold); }
@@ -127,7 +130,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border: 1px solid var(--gold);
   border-radius: 999px;
   background: var(--gold);
-  color: #0a0a0a;
+  color: var(--bg);
   font-family: var(--f-label);
   font-size: 14px;
   font-weight: 500;
@@ -160,7 +163,6 @@ main { position: relative; }
   top: 0; right: -4vw;
   height: 100%;
   aspect-ratio: 1;
-  mix-blend-mode: screen;
 }
 .hero-img {
   width: 100%; height: 100%;
@@ -171,8 +173,8 @@ main { position: relative; }
 .hero-shade {
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, var(--bg) 0%, rgba(5,5,5,0.88) 32%, rgba(5,5,5,0.15) 68%, rgba(5,5,5,0.4) 100%),
-    linear-gradient(0deg, var(--bg) 0%, transparent 30%);
+    linear-gradient(90deg, var(--bg) 0%, rgba(255,255,255,0.96) 32%, rgba(255,255,255,0.08) 68%, rgba(255,255,255,0.08) 100%),
+    linear-gradient(0deg, var(--bg) 0%, rgba(255,255,255,0) 30%);
 }
 .hero-content { position: relative; z-index: 2; max-width: 980px; will-change: transform, opacity; }
 .eyebrow {
@@ -247,7 +249,7 @@ html[lang="en"] .hero-title, html[lang="pt"] .hero-title { font-size: clamp(33px
   left: 0; right: 0;
   top: calc(-1 * var(--section-blend));
   height: calc(var(--section-blend) + 1px);
-  background: linear-gradient(180deg, rgba(5, 5, 5, 0), var(--bg));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), var(--bg));
   pointer-events: none;
 }
 .collage-sticky {
@@ -280,7 +282,7 @@ html[lang="en"] .collage-headline, html[lang="pt"] .collage-headline { font-size
   pointer-events: auto;
   will-change: transform;
 }
-.c-img { aspect-ratio: 186 / 300; max-height: 52vh; overflow: hidden; background: #111; }
+.c-img { aspect-ratio: 186 / 300; max-height: 52vh; overflow: hidden; background: var(--bg-2); }
 .c-img img {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -521,7 +523,7 @@ html[lang="en"] .collage-headline, html[lang="pt"] .collage-headline { font-size
 .event {
   padding: 56px 36px 48px;
   border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255,255,255,0.025), transparent);
+  background: var(--bg);
   text-align: center;
   transition: border-color 0.4s;
 }
@@ -539,7 +541,7 @@ html[lang="en"] .collage-headline, html[lang="pt"] .collage-headline { font-size
   font-style: italic;
   font-size: 19px;
   line-height: 1.6;
-  color: #ddd8c8;
+  color: var(--ink-soft);
 }
 .event-title { margin-bottom: 8px; font-family: var(--f-display); font-weight: 400; font-size: 20px; line-height: 1.4; color: var(--gold); }
 .event-place { font-size: 13px; color: var(--muted); }
@@ -549,11 +551,11 @@ html[lang="en"] .collage-headline, html[lang="pt"] .collage-headline { font-size
 .contact { padding: var(--section-space) var(--pad) clamp(64px, 6vw, 96px); overflow: hidden; }
 .contact-bg {
   position: absolute; inset: 0;
-  opacity: 0.2;
+  opacity: 0.12;
   -webkit-mask-image: radial-gradient(ellipse at 70% 50%, #000 15%, transparent 70%);
   mask-image: radial-gradient(ellipse at 70% 50%, #000 15%, transparent 70%);
 }
-.contact-bg img { width: 100%; height: 130%; margin-top: -15%; object-fit: cover; filter: grayscale(1) sepia(0.5); will-change: transform; }
+.contact-bg img { width: 100%; height: 130%; margin-top: -15%; object-fit: cover; filter: grayscale(0.4); will-change: transform; }
 .contact-inner { position: relative; max-width: 1300px; margin: 0 auto; }
 .contact-title {
   margin-bottom: 80px;
@@ -571,9 +573,9 @@ html[lang="en"] .collage-headline, html[lang="pt"] .collage-headline { font-size
 .footer-top {
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px;
   padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--line);
 }
-.cities { font-family: var(--f-label); font-size: 13px; letter-spacing: 0.2em; color: #3e3c37; }
+.cities { font-family: var(--f-label); font-size: 13px; letter-spacing: 0.2em; color: var(--muted); }
 .cities span { color: var(--gold); padding: 0 10px; }
 .footer-bottom {
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px;
@@ -581,7 +583,7 @@ html[lang="en"] .collage-headline, html[lang="pt"] .collage-headline { font-size
   font-size: 12px;
   color: var(--muted);
 }
-.credits { max-width: 640px; font-size: 11px; line-height: 1.7; color: #5e5b53; }
+.credits { max-width: 640px; font-size: 11px; line-height: 1.7; color: var(--muted); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
@@ -604,7 +606,7 @@ html[lang="en"] .collage-headline, html[lang="pt"] .collage-headline { font-size
     position: fixed; inset: 0;
     margin: 0;
     flex-direction: column; justify-content: center; gap: 30px;
-    background: rgba(5, 5, 5, 0.97);
+    background: rgba(255, 255, 255, 0.98);
     opacity: 0; visibility: hidden;
     transition: opacity 0.4s, visibility 0.4s;
   }
@@ -613,7 +615,7 @@ html[lang="en"] .collage-headline, html[lang="pt"] .collage-headline { font-size
   .lang-switcher { font-size: 16px; margin-top: 20px; }
 
   .hero-media { right: -45vh; }
-  .hero-shade { background: linear-gradient(90deg, rgba(5,5,5,0.92), rgba(5,5,5,0.55)), linear-gradient(0deg, var(--bg), transparent 30%); }
+  .hero-shade { background: linear-gradient(90deg, rgba(255,255,255,0.96), rgba(255,255,255,0.88) 55%, rgba(255,255,255,0.58)), linear-gradient(0deg, var(--bg), rgba(255,255,255,0) 30%); }
 
   .collage { height: 300vh; }
   .collage-headline { font-size: min(8.5vw, 8.5vh); }
